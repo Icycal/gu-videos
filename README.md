@@ -4,10 +4,10 @@
 
 ## 目录结构
 
-所有作品素材统一放在 `作品集/` 下，按作品分子目录（子目录名 = 主页 `data.js` 里的作品 slug）：
+所有作品素材统一放在 `portfolio/` 下，按作品分子目录（子目录名 = 主页 `data.js` 里的作品 slug）：
 
 ```
-作品集/
+portfolio/
 ├── xiaodu/            儿童手表小度助手
 │   ├── xiaodu-crop.webp        封面（透明）
 │   └── xiaoduwatch.mp4         演示视频 (7.3MB, H.264)
@@ -27,7 +27,7 @@
 ```
 
 > 子目录用 ASCII 命名（对应作品 slug），避免 CDN 上多层中文路径的编码差异；
-> 顶层 `作品集/` 这一层中文经实测可正常访问。
+> 顶层 `portfolio/` 这一层中文经实测可正常访问。
 
 ## 用法
 
@@ -35,10 +35,10 @@
 
 ```js
 // 图片
-cover: { kind: "image", src: "https://cdn.jsdelivr.net/gh/Icycal/gu-videos@main/作品集/stethoscope/stethoscope-main.webp" }
+cover: { kind: "image", src: "https://cdn.jsdelivr.net/gh/Icycal/gu-videos@main/portfolio/stethoscope/stethoscope-main.webp" }
 
 // 视频
-{ kind: "video", src: "https://cdn.jsdelivr.net/gh/Icycal/gu-videos@main/作品集/stethoscope/stethoscope.mp4" }
+{ kind: "video", src: "https://cdn.jsdelivr.net/gh/Icycal/gu-videos@main/portfolio/stethoscope/stethoscope.mp4" }
 ```
 
 改完 `data.js` 记得 bump HTML 里的 `data.js?v=` 缓存版本号，否则访客浏览器仍会拉旧路径。
@@ -52,4 +52,4 @@ cover: { kind: "image", src: "https://cdn.jsdelivr.net/gh/Icycal/gu-videos@main/
   ffmpeg -i input.mp4 -c:v libx264 -crf 23 -preset slow -pix_fmt yuv420p \
          -c:a aac -b:a 96k -movflags +faststart output.mp4
   ```
-- 新增作品素材时，在 `作品集/` 下建与 slug 同名的子目录，不要往仓库根目录堆文件。
+- 新增作品素材时，在 `portfolio/` 下建与 slug 同名的子目录，不要往仓库根目录堆文件。
