@@ -1,0 +1,11 @@
+# 旧路径残留：素材已全部迁到 portfolio/<slug>/ 下。
+# 本地磁盘上若仍留有迁移前的旧副本（根目录散落文件、旧 zhuge/ wifimodule/ 目录、
+# 以及中文名文件），一律不入库，避免误提交造成重复与混乱。
+# 用 / 前缀限定只匹配仓库根目录，不影响 portfolio/ 内的同名文件。
+/*.mp4
+/*.webp
+/*.png
+/*.jpeg
+/*.jpg
+/zhuge/
+/wifimodule/
