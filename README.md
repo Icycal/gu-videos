@@ -26,8 +26,12 @@ portfolio/
     └── alx850x-spec.webp       ALX850X 参数表
 ```
 
-> 子目录用 ASCII 命名（对应作品 slug），避免 CDN 上多层中文路径的编码差异；
-> 顶层 `portfolio/` 这一层中文经实测可正常访问。
+> ⚠️ **目录与文件名必须全 ASCII，不要用中文。**
+> jsDelivr 对含非 ASCII 字符的路径不缓存，而是返回 301 跳到
+> `raw.githubusercontent.com`。小图片跟随重定向还能加载，但视频会直接失败：
+> `<video>` 的 Range 请求打到 raw 上会得到 `MEDIA_ELEMENT_ERROR: Format error`（code 4）。
+> 实测：`作品集/stethoscope/stethoscope.mp4` 播放失败，改成 `portfolio/stethoscope/stethoscope.mp4` 后正常。
+> 所以顶层目录叫 `portfolio`（= 作品集）而不是中文。
 
 ## 用法
 
