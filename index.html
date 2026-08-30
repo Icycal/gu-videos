@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>gu-videos · 作品集图床</title>
+  <style>
+    :root { color-scheme: dark; }
+    body {
+      margin: 0; font-family: system-ui, "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: #0f1422; color: #e6ebf5; line-height: 1.7; padding: 48px 24px;
+    }
+    .wrap { max-width: 760px; margin: 0 auto; }
+    h1 { font-size: 24px; margin: 0 0 4px; }
+    .sub { color: #8a94a6; margin: 0 0 28px; }
+    h2 { font-size: 16px; color: #9fb0ff; margin-top: 32px; border-left: 3px solid #4f7cff; padding-left: 10px; }
+    code { background: #1b2233; padding: 2px 6px; border-radius: 4px; font-size: 13px; color: #ffd479; }
+    ul { padding-left: 20px; }
+    li { margin: 6px 0; }
+    .note { background: #151b2b; border: 1px solid #26304a; border-radius: 8px; padding: 14px 16px; color: #b9c2d6; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>gu-videos</h1>
+    <p class="sub">个人主页作品集的图片 / 视频图床 · 经 GitHub Pages 提供</p>
+
+    <div class="note">
+      本站是 <code>icycal.github.io/personal-homepage</code> 的素材仓库，
+      不提供页面浏览，仅通过 HTTPS 直接返回媒体文件。
+      主页的 <code>data.js</code> 以如下格式引用本仓库资源：
+      <br /><br />
+      <code>https://icycal.github.io/gu-videos/portfolio/&lt;slug&gt;/&lt;file&gt;</code>
+    </div>
+
+    <h2>目录结构</h2>
+    <ul>
+      <li><code>portfolio/xiaodu/</code> — 儿童手表小度助手（封面 webp + 演示 mp4）</li>
+      <li><code>portfolio/stethoscope/</code> — 智能多模听诊器（主图 / 实拍 / 演示 mp4）</li>
+      <li><code>portfolio/zhuge/</code> — 诸葛智能体（15 张 webp）</li>
+      <li><code>portfolio/wifimodule/</code> — AIDK 物联网平台 · WiFi 模组（4 张 webp）</li>
+    </ul>
+
+    <h2>投放约定</h2>
+    <ul>
+      <li>子目录名 = 主页 <code>data.js</code> 里的作品 slug</li>
+      <li>图片统一 WebP；视频统一 H.264（avc1）yuv420p + faststart</li>
+      <li>路径保持全 ASCII（中文路径会让 GitHub Pages 编码异常，页面拿不到图）</li>
+    </ul>
+  </div>
+</body>
+</html>

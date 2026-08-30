@@ -1,6 +1,18 @@
 # gu-videos
 
-个人主页（`Icycal.github.io`）**作品集的图片 / 视频图床**。主页仓库只存代码与配置，所有媒体素材集中在这里，经 jsDelivr CDN 引用。
+个人主页（`icycal.github.io`）**作品集的图片 / 视频图床**。主页仓库只存代码与配置，所有媒体素材集中在这里，**经 GitHub Pages 提供**（不走第三方 CDN）。
+
+## 启用
+
+本仓库开了 **GitHub Pages**：仓库 Settings → Pages → Source 选 `Deploy from a branch` → Branch `main` / `(root)` → Save。
+生效后资源通过下面这个域名直出：
+
+```
+https://icycal.github.io/gu-videos/
+```
+
+> 国内直接访问 `github.io` 比 jsDelivr 稳得多。早期曾用 jsDelivr，但它在国内网络下
+> 经常 `ERR_TIMED_OUT`，浏览器里图片 / 视频全部加载不出来，已弃用。
 
 ## 目录结构
 
@@ -26,23 +38,19 @@ portfolio/
     └── alx850x-spec.webp       ALX850X 参数表
 ```
 
-> ⚠️ **目录与文件名必须全 ASCII，不要用中文。**
-> jsDelivr 对含非 ASCII 字符的路径不缓存，而是返回 301 跳到
-> `raw.githubusercontent.com`。小图片跟随重定向还能加载，但视频会直接失败：
-> `<video>` 的 Range 请求打到 raw 上会得到 `MEDIA_ELEMENT_ERROR: Format error`（code 4）。
-> 实测：`作品集/stethoscope/stethoscope.mp4` 播放失败，改成 `portfolio/stethoscope/stethoscope.mp4` 后正常。
-> 所以顶层目录叫 `portfolio`（= 作品集）而不是中文。
+> ⚠️ **目录与文件名必须全 ASCII，不要用中文。** 顶层目录叫 `portfolio`（= 作品集）而不是中文。
+> 中文路径在 GitHub Pages 下会被反复 URL-encode / 解码，部分浏览器拿不到资源。
 
 ## 用法
 
-主页 `data.js` 里这样引用（`@main` 固定指向 main 分支）：
+主页 `data.js` 里这样引用（GitHub Pages 直接 serve main 分支文件，无需版本号）：
 
 ```js
 // 图片
-cover: { kind: "image", src: "https://cdn.jsdelivr.net/gh/Icycal/gu-videos@main/portfolio/stethoscope/stethoscope-main.webp" }
+cover: { kind: "image", src: "https://icycal.github.io/gu-videos/portfolio/stethoscope/stethoscope-main.webp" }
 
 // 视频
-{ kind: "video", src: "https://cdn.jsdelivr.net/gh/Icycal/gu-videos@main/portfolio/stethoscope/stethoscope.mp4" }
+{ kind: "video", src: "https://icycal.github.io/gu-videos/portfolio/stethoscope/stethoscope.mp4" }
 ```
 
 改完 `data.js` 记得 bump HTML 里的 `data.js?v=` 缓存版本号，否则访客浏览器仍会拉旧路径。
